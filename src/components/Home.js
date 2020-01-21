@@ -16,34 +16,37 @@ class Home extends Component {
 	  
 	  // Is called when the component succesfully loads
 	  componentDidMount() {
-		// GET request to our server
-		axios({
-		  method: 'GET',
-		  url: '/api/programs'
-		})
-		// Saves the data to state. Only way to change the state is with setState
-		.then(data => {
-			console.log(data.data.data);
-			this.setState({
-			  programs: data.data.data,
-			  dataLoaded: true
-			});
-		  })
-		  // logs an error
-		  .catch(err => {
-			console.log(err);
-		  });
+			// GET request to our server
+			axios({
+				method: 'GET',
+				url: '/api/programs'
+			})
+			// Saves the data to state. Only way to change the state is with setState
+			.then(data => {
+				console.log(data.data.data);
+				this.setState({
+					programs: data.data.data,
+					dataLoaded: true
+				});
+				})
+				// logs an error
+				.catch(err => {
+					console.log(err);
+				});
 		}
+	renderSections() {
+	}
 
 	renderPrograms() {
 		if (this.state.dataLoaded) {
 			return this.state.programs.map(program => {
 				return (
-					<div key={program.id}>
+					<div class="container" key={program.id}>
 						<Link to={`/${program.id}`}>{program.name}</Link>
 						<p className="program description">{program.description}</p>
 					</div>
 				)
+
 			})
 		} else {
 			<p>Loading...</p>
@@ -55,7 +58,6 @@ class Home extends Component {
       <div className="Home">
 		<div class="jumbotron text-center">
 			<h1>Modern Health Programs</h1>
-			<p>Resize this responsive page to see the effect!</p>
 		</div>
       	{this.renderPrograms()}
       </div>

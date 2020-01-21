@@ -10,6 +10,5 @@ import './index.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 // Attach the App component to the div with the id "root" in our index.html file
 ReactDOM.render(<App />, document.getElementById('root'));

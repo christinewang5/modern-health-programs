@@ -1,3 +1,5 @@
+TRUNCATE programs, sections RESTART IDENTITY;
+
 INSERT INTO programs(name, description) VALUES 
 	(
 		'Core Pillars Program', 
@@ -24,4 +26,4 @@ INSERT INTO sections(name, description, order_idx, program_id) VALUES
 	('Inspire', 'dummy 2', 2, 2),
 	('Invest', 'dummy 3', 3, 2), 
 	-- Mindful communication
-	('Active listening', 'hi', 3, 4);
+	('Active listening', 'hi', 1, 3);
