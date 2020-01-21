@@ -13,7 +13,7 @@ sectionRouter.get('/', sectionController.findAll);
 sectionRouter.get('/:id', sectionController.findById);
 
 // Request for a certain program_id
-// sectionRouter.get('/:program_id', sectionController.findByProgramId);
+sectionRouter.get('/:program_id/:order_idx', sectionController.findByProgramOrder);
 
 // Export the router
 module.exports = sectionRouter;

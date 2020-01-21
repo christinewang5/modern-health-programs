@@ -44,10 +44,10 @@ sectionController.findByProgramOrder = (req, res) => {
 	// Sections method for finding by id, passes the id as an argument
 	Section.findByProgramOrder(req.params.program_id, req.params.order_idx)
 	.then(section => {
-	  // Sends the section as a JSON object
+		// Sends the section as a JSON object
 	  res.json({
-		message: "Success",
-		data: section
+			message: "Success",
+			data: section
 	  });
 	})
 	.catch(err => {
