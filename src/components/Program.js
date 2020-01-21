@@ -19,6 +19,7 @@ class Program extends Component {
     })
     .then(data => {
       this.setState({
+		program: data.data.data,
         dataLoaded: true
       })
     })

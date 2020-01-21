@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+
+// Set the port
 const PORT = process.env.PORT || 3000;
 
 // Import Path
@@ -10,10 +12,6 @@ app.use(express.static('build'));
 
 // API Routes
 app.use('/api/programs', require('./routes/program-routes'));
-
-app.get('/', (req, res) => {
-  res.send('Hello, world!');
-});
 
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))

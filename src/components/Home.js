@@ -1,16 +1,18 @@
 // Import react
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+// Axios for making GET requests
+import axios from 'axios';
 
 class Home extends Component {
 	constructor() {
 		super();
 		// Define state
 		this.state = {
-		  programs: [],
-		  dataLoaded: false
+			programs: [],
+			dataLoaded: false
 		}
-	  }
+	}
 	  
 	  // Is called when the component succesfully loads
 	  componentDidMount() {
@@ -21,25 +23,25 @@ class Home extends Component {
 		})
 		// Saves the data to state. Only way to change the state is with setState
 		.then(data => {
-		  this.setState({
-			programs: data.data.data,
-			dataLoaded: true
+			console.log(data.data.data);
+			this.setState({
+			  programs: data.data.data,
+			  dataLoaded: true
+			});
+		  })
+		  // logs an error
+		  .catch(err => {
+			console.log(err);
 		  });
-		})
-		// logs an error
-		.catch(err => {
-		  console.log(err);
-		});
-	  }
+		}
 
 	renderPrograms() {
 		if (this.state.dataLoaded) {
 			return this.state.programs.map(program => {
 				return (
 					<div key={program.id}>
-					<Link to={`/${program.id}`}>"{program.name}"</Link>
-					<p className="program name">{program.description}</p>
-					<p className="program description">{program.description}</p>
+						<Link to={`/${program.id}`}>"{program.name}"</Link>
+						<p className="program description">{program.description}</p>
 					</div>
 				)
 			})
@@ -51,7 +53,7 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-		<h1>Programs</h1>
+		<h1>These are all the programs</h1>
       	{this.renderPrograms()}
       </div>
     )
