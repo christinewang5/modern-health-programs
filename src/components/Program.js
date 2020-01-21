@@ -33,8 +33,8 @@ class Program extends Component {
     if (this.state.dataLoaded) {
       return (
         <div>
-          <p className="program name">"{program.name}"</p>
-          <p className="program description">-{program.description}</p>
+          <p className="program name">{program.name}</p>
+          <p className="program description">{program.description}</p>
         </div>
       )
     }
@@ -48,7 +48,7 @@ class Program extends Component {
   render() {
     return (
       <div className="Program">
-        <h3>I like this program in particular</h3>
+        <h3>Program details</h3>
         {this.renderProgram()}
         <Link to="/">Back to Programs</Link>
       </div>

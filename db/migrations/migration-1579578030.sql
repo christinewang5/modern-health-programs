@@ -1,6 +1,6 @@
 
 DROP TABLE IF EXISTS programs;
-DROP TABLE IF EXISTS services;
+DROP TABLE IF EXISTS sections CA;
 
 CREATE TABLE IF NOT EXISTS programs(
   id SERIAL PRIMARY KEY,
@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS programs(
   description TEXT
 );
 
-CREATE TABLE IF NOT EXISTS services(
+CREATE TABLE IF NOT EXISTS sections(
   id BIGSERIAL PRIMARY KEY,
   name TEXT, 
   description TEXT,

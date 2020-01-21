@@ -40,7 +40,7 @@ class Home extends Component {
 			return this.state.programs.map(program => {
 				return (
 					<div key={program.id}>
-						<Link to={`/${program.id}`}>"{program.name}"</Link>
+						<Link to={`/${program.id}`}>{program.name}</Link>
 						<p className="program description">{program.description}</p>
 					</div>
 				)
@@ -53,7 +53,10 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-		<h1>These are all the programs</h1>
+		<div class="jumbotron text-center">
+			<h1>Modern Health Programs</h1>
+			<p>Resize this responsive page to see the effect!</p>
+		</div>
       	{this.renderPrograms()}
       </div>
     )
