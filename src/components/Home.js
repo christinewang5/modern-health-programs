@@ -14,26 +14,27 @@ class Home extends Component {
 		}
 	}
 	  
-	  // Is called when the component succesfully loads
-	  componentDidMount() {
-			// GET request to our server
-			axios({
-				method: 'GET',
-				url: '/api/programs'
+	// Is called when the component succesfully loads
+	componentDidMount() {
+		// GET request to our server
+		axios({
+			method: 'GET',
+			url: '/api/programs'
+		})
+		// Saves the data to state. Only way to change the state is with setState
+		.then(data => {
+			console.log(data.data.data);
+			this.setState({
+				programs: data.data.data,
+				dataLoaded: true
+			});
 			})
-			// Saves the data to state. Only way to change the state is with setState
-			.then(data => {
-				console.log(data.data.data);
-				this.setState({
-					programs: data.data.data,
-					dataLoaded: true
-				});
-				})
-				// logs an error
-				.catch(err => {
-					console.log(err);
-				});
-		}
+			// logs an error
+			.catch(err => {
+				console.log(err);
+			});
+	}
+
 	renderSections() {
 	}
 

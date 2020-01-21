@@ -3,20 +3,20 @@ const db = require('../db/config');
 
 // Instantiate a new object.
 // This will interface with the modern-health database.
-// Specifically, the Programs table.
-const Programs = {};
+// Specifically, the Program table.
+const Program = {};
 
 // Define methods for the Program object
 
 // Returns all program from the table
-Programs.findAll = () => {
+Program.findAll = () => {
   return db.query(
     `SELECT * FROM programs`
   );
 };
 
 // Return one program with the specific id
-Programs.findById = (id) => {
+Program.findById = (id) => {
   return db.oneOrNone(
     `
       SELECT * FROM programs
@@ -26,5 +26,5 @@ Programs.findById = (id) => {
   );
 };
 
-// Export the Programs object
-module.exports = Programs;
+// Export the Program object
+module.exports = Program;

@@ -12,6 +12,7 @@ app.use(express.static('build'));
 
 // API Routes
 app.use('/api/programs', require('./routes/program-routes'));
+app.use('/api/sections', require('./routes/section-routes'));
 
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
