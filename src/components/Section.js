@@ -35,8 +35,12 @@ class Section extends Component {
     if (this.state.dataLoaded) {
       return (
         <div>
-          <p className="section name">{section.name}</p>
+          <h1 className="section name">{section.name}</h1>
           <p className="section description">{section.description}</p>
+          <img class="card-img-top" 
+            width="100%"
+            height="225"
+            src={`${section.image_url}`}/>
         </div>
       )
     }

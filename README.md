@@ -8,7 +8,7 @@ To the run the program, do the following:
 2. `createdb modern-health`
 
 3. Load seed data
-	- `psql -d modern-health -f db/migrations/migration-1542299195696.sql`
+	- `psql -d modern-health -f db/migrations/migration-1579578030.sql`
 	- `psql -d modern-health -f db/seeds/programs.sql`
 
 4. `npm install` to install dependencies 
