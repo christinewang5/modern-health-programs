@@ -20,22 +20,5 @@ Section.findById = (id) => {
 	);
 };
 
-Section.findNumSections = (program_id) => {
-	return db.oneOrNone(
-		`SELECT COUNT(*) FROM sections
-		WHERE program_id = $1`,
-		[program_id]
-	);
-};
-
-// Return one quote with the specific id
-Section.findByProgramOrder = (program_id, order_idx) => {
-	return db.oneOrNone(
-		`SELECT * FROM sections
-		WHERE program_id = $1 AND order_idx = $2`,
-		[program_id, order_idx]
-	);
-};
-
 // Export the Section object
 module.exports = Section;
