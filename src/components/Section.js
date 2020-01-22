@@ -14,19 +14,19 @@ class Section extends Component {
   componentDidMount() {
     // Use string interpolation to get the id from the URL
     axios({
-	  method: 'GET',
+      method: 'GET',
       url: `/api/sections/${this.props.match.params.id}`
     })
-    .then(data => {
-      this.setState({
-		    section: data.data.data,
-        dataLoaded: true 
+      .then(data => {
+        this.setState({
+          section: data.data.data,
+          dataLoaded: true
+        })
       })
-    })
-    .catch(err => {
-      console.log(err);
-    })
-    
+      .catch(err => {
+        console.log(err);
+      })
+
   }
 
   renderSection() {
