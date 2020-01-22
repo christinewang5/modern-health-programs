@@ -17,12 +17,12 @@ INSERT INTO programs(name, description) VALUES
 
 INSERT INTO sections(name, description, order_idx, program_id) VALUES
 	-- Core Pillars
-	('Mindfulness', 'dummy description 1', 1, 1), 
+	('Mindfulness', 'dummy 1', 1, 1), 
 	('Values', 'dummy 2', 2, 1),
 	('Action', 'dummy 3', 3, 1),
 	-- Leadership Development Program
-	('Manage', 'dummy description 1', 1, 2), 
+	('Manage', 'dummy 1', 1, 2), 
 	('Inspire', 'dummy 2', 2, 2),
 	('Invest', 'dummy 3', 3, 2), 
 	-- Mindful communication
-	('Active listening', 'hi', 1, 3);
+	('Active listening', 'dummy 1', 1, 3);

@@ -6,7 +6,7 @@ class Program extends Component {
   constructor() {
     super();
     this.state = {
-      program: null,
+      section: null,
       dataLoaded: false
     }
   }
@@ -14,27 +14,27 @@ class Program extends Component {
   componentDidMount() {
     // Use string interpolation to get the id from the URL
     axios({
-      method: 'GET',
-      url: `/api/programs/${this.props.match.params.id}`
+	  method: 'GET',
+      url: `/api/sections/${this.props.match.params.program_id}/${this.props.match.params.section_id}`
     })
     .then(data => {
       this.setState({
-		program: data.data.data,
-        dataLoaded: true
-      })
+		  section: data.data.data,
+      dataLoaded: true })
     })
     .catch(err => {
       console.log(err);
     })
+    
   }
 
-  renderProgram() {
-    const program = this.state.program;
+  renderSection() {
+    const section = this.state.section;
     if (this.state.dataLoaded) {
       return (
         <div>
-          <p className="program name">{program.name}</p>
-          <p className="program description">{program.description}</p>
+          <p className="section name">{section.name}</p>
+          <p className="section description">{section.description}</p>
         </div>
       )
     }
@@ -47,12 +47,10 @@ class Program extends Component {
 
   render() {
     return (
-      <div className="Program">
-        {this.renderProgram()}
+      <div className="section">
+        {this.renderSection()}
         <Link to="/">Back to Programs</Link>
       </div>
     )
   }
-};
-
-export default Program;
+}

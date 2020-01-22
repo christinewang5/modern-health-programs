@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 // Import each component
 import Home from './components/Home';
 import Program from './components/Program';
+import Section from './components/Section';
 
 // Import css file
 import './App.css';
@@ -19,6 +20,7 @@ class App extends Component {
         <div className="App">
           <Route exact path="/" component={Home} />
           <Route exact path="/:id" component={Program} />
+          <Route exact path="/:program_id/:section_id" component={Section} />
         </div>
       </Router>
     )
