@@ -18,10 +18,8 @@ Program.findAll = () => {
 // Return one program with the specific id
 Program.findById = (id) => {
   return db.oneOrNone(
-    `
-      SELECT * FROM programs
-      WHERE id = $1
-    `,
+    `SELECT * FROM programs
+    WHERE id = $1`,
     [id]
   );
 };

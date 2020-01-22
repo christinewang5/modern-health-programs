@@ -1,11 +1,28 @@
 // Import react
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Link } from 'react-router-dom';
 // Axios for making GET requests
 import axios from 'axios';
 
 import { LinkContainer } from 'react-router-bootstrap';
-import { Button } from 'react-bootstrap';
+import { Button, Collapse } from 'react-bootstrap';
+
+function LearnMoreCollapse(program) {
+	const [open, setOpen] = useState(false);
+	return (
+	  <>
+			<Button onClick={() => setOpen(!open)}
+				aria-controls="learnmore-collapse-text"
+				aria-expanded={open}
+				size="sm">Learn More</Button>
+			<Collapse in={open}>
+				<div id="learnmore-collapse-text">
+					{program.description}
+				</div>
+			</Collapse>
+	  </>
+	);
+}
 
 class Home extends Component {
 	constructor() {
@@ -65,13 +82,16 @@ class Home extends Component {
 				<p>Loading...</p>
 			}
 		}
-	
+
 		renderPrograms() {
 			if (this.state.dataLoaded) {
 				return this.state.programs.map(program => {
 					return (
 						<div class="container" key={program.id}>
-							<Link to={`/prog/${program.id}`}><h4>{program.name}</h4></Link>
+							<h4>{program.name}</h4>
+							<div class="text-right"> 
+								<LearnMoreCollapse description={program.description} />
+							</div>
 							<div class="container">
 								<div class="row">
 								{this.renderSections(program.id)}
