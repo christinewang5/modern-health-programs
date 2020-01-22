@@ -17,15 +17,15 @@ class Program extends Component {
       method: 'GET',
       url: `/api/programs/${this.props.match.params.id}`
     })
-    .then(data => {
-      this.setState({
-		program: data.data.data,
-        dataLoaded: true
+      .then(data => {
+        this.setState({
+          program: data.data.data,
+          dataLoaded: true
+        })
       })
-    })
-    .catch(err => {
-      console.log(err);
-    })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   renderProgram() {
