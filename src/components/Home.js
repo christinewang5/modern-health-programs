@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 // Axios for making GET requests
 import axios from 'axios';
 
-import { LinkContainer } from 'react-router-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap';
+import { Button, Card} from 'react-bootstrap';
+import Accordion from 'react-bootstrap/Accordion';
 
 class Home extends Component {
 	constructor() {
@@ -48,15 +50,16 @@ class Home extends Component {
 					if (program_id  == section.program_id) {
 						return (
 							<div class="col-md-4">
-								<LinkContainer to={`/${program_id}/${section.id}`}>
 								<div class="card mb-4 shadow-sm">
 									<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 									<div class="card-body" key={section.id}>
 										<h5>{section.name}</h5>
 										<p class="card-text">{section.description}</p>
+								    <LinkContainer to={`/${program_id}/${section.id}`}>
+                    <Button variant="outline-info" size="sm">View</Button>
+								    </LinkContainer>
 									</div>
 								</div>
-								</LinkContainer>
 							</div>
 						)
 					}
