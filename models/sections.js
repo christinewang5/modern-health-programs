@@ -14,20 +14,16 @@ Section.findAll = () => {
 // Return one quote with the specific id
 Section.findById = (id) => {
 	return db.oneOrNone(
-		`
-			SELECT * FROM sections
-			WHERE id = $1
-		`,
+		`SELECT * FROM sections
+		WHERE id = $1`,
 		[id]
 	);
 };
 
 Section.findNumSections = (program_id) => {
 	return db.oneOrNone(
-		`
-			SELECT COUNT(*) FROM sections
-			WHERE program_id = $1 
-		`,
+		`SELECT COUNT(*) FROM sections
+		WHERE program_id = $1`,
 		[program_id]
 	);
 };
@@ -35,10 +31,8 @@ Section.findNumSections = (program_id) => {
 // Return one quote with the specific id
 Section.findByProgramOrder = (program_id, order_idx) => {
 	return db.oneOrNone(
-		`
-			SELECT * FROM sections
-			WHERE program_id = $1 AND order_idx = $2
-		`,
+		`SELECT * FROM sections
+		WHERE program_id = $1 AND order_idx = $2`,
 		[program_id, order_idx]
 	);
 };

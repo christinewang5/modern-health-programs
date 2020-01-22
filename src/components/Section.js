@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-class Program extends Component {
+class Section extends Component {
   constructor() {
     super();
     this.state = {
@@ -15,12 +15,13 @@ class Program extends Component {
     // Use string interpolation to get the id from the URL
     axios({
 	  method: 'GET',
-      url: `/api/sections/${this.props.match.params.program_id}/${this.props.match.params.section_id}`
+      url: `/api/sections/${this.props.match.params.id}`
     })
     .then(data => {
       this.setState({
-		  section: data.data.data,
-      dataLoaded: true })
+		    section: data.data.data,
+        dataLoaded: true 
+      })
     })
     .catch(err => {
       console.log(err);
@@ -46,11 +47,14 @@ class Program extends Component {
   }
 
   render() {
+    console.log(`program id ${this.props.match.params.id}`)
     return (
-      <div className="section">
+      <div className="Section">
         {this.renderSection()}
         <Link to="/">Back to Programs</Link>
       </div>
     )
   }
 }
+
+export default Section;

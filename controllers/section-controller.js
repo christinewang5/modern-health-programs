@@ -40,39 +40,5 @@ sectionController.findById = (req, res) => {
   });
 };
 
-sectionController.findByProgramOrder = (req, res) => {
-	// Sections method for finding by id, passes the id as an argument
-	Section.findByProgramOrder(req.params.program_id, req.params.order_idx)
-	.then(section => {
-		// Sends the section as a JSON object
-	  res.json({
-			message: "Success",
-			data: section
-	  });
-	})
-	.catch(err => {
-	  // If something goes wrong it logs the error in the console and sends it as a JSON object
-	  console.log(err);
-	  res.status(500).json({err});
-	});
-  };
-
-sectionController.findNumSection = (req, res) => {
-	// Sections method for finding by id, passes the id as an argument
-	Section.findNumSection(req.params.program_id)
-	.then(numSection => {
-		// Sends the section as a JSON object
-		res.json({
-			message: "Success",
-			data: numSection
-		});
-	})
-	.catch(err => {
-		// If something goes wrong it logs the error in the console and sends it as a JSON object
-		console.log(err);
-		res.status(500).json({err});
-	});
-};
-
 // Export the controller
 module.exports = sectionController;

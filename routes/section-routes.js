@@ -7,10 +7,10 @@ const sectionRouter = express.Router();
 const sectionController = require('../controllers/section-controller');
 
 // Request all sections, send it to the / route
-sectionRouter.get('/', sectionController.findAll);
+sectionRouter.get('/sec', sectionController.findAll);
 
 // Request for a certain program_id
-sectionRouter.get('/:program_id/:order_idx', sectionController.findByProgramOrder);
+sectionRouter.get('/sec/:id', sectionController.findById);
 
 // Export the router
 module.exports = sectionRouter;

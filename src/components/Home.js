@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import { LinkContainer } from 'react-router-bootstrap';
-import { Button, Card} from 'react-bootstrap';
-import Accordion from 'react-bootstrap/Accordion';
+import { Button } from 'react-bootstrap';
 
 class Home extends Component {
 	constructor() {
@@ -30,8 +29,6 @@ class Home extends Component {
 			// GET request for both sections and programs
 			axios.all([getSections(), getPrograms()])
 				.then(axios.spread((secs, progs) => {
-					console.log(secs.data.data);
-					console.log(progs.data.data);
 					this.setState({
 						sections: secs.data.data,
 						programs: progs.data.data,
@@ -49,15 +46,15 @@ class Home extends Component {
 				return this.state.sections.map(section => {
 					if (program_id  == section.program_id) {
 						return (
-							<div class="col-md-4">
+							<div class="col-md-4" key={section.id}>
 								<div class="card mb-4 shadow-sm">
 									<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 									<div class="card-body" key={section.id}>
 										<h5>{section.name}</h5>
 										<p class="card-text">{section.description}</p>
-								    <LinkContainer to={`/${program_id}/${section.id}`}>
-                    <Button variant="outline-info" size="sm">View</Button>
-								    </LinkContainer>
+										<LinkContainer to={`/sec/${section.id}`}>
+										<Button variant="outline-info" size="sm">View</Button>
+										</LinkContainer>
 									</div>
 								</div>
 							</div>
@@ -74,7 +71,7 @@ class Home extends Component {
 				return this.state.programs.map(program => {
 					return (
 						<div class="container" key={program.id}>
-							<Link to={`/${program.id}`}><h4>{program.name}</h4></Link>
+							<Link to={`/prog/${program.id}`}><h4>{program.name}</h4></Link>
 							<div class="container">
 								<div class="row">
 								{this.renderSections(program.id)}
