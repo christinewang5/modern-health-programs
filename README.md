@@ -1,20 +1,15 @@
 # Modern Health Online Learning Programs
 
-Full-Stack Take Home Exercise 
+## Full-Stack Take Home Exercise 
 
-To the run the program, do the following: 
+## Running the app
+Deployed project is here: https://modern-health-programs.herokuapp.com/
 
-1. Install Postgres, Node, and a package manager 
-2. `createdb modern-health`
+Run the following command in the terminal to open in browser: 
+`heroku open -r prod`
 
-3. Load seed data
-	- `psql -d modern-health -f db/migrations/migration-1579578030.sql`
-	- `psql -d modern-health -f db/seeds/programs.sql`
-
-4. `npm install` to install dependencies 
-
-5. `npm start` to start server
-
-6. `npm run build` to build front-end
-
-7. Navigate to http://localhost:3000/
+## The Stack
+* _Node_ - dev environment
+* _Express_ - web framework
+* _Postgres_ - database
+* _React_ - frontend 
